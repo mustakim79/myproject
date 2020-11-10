@@ -80,13 +80,14 @@ if (isset($_GET['id'])) {
                         if ($row['status'] == "pending") {
                         ?>
                 <p class="text-muted px-1 text-capitalize"><?= $row['msg'] ?></p>
-                <?php } else { ?>
-                <div class="my-3">Status : <?= $row['status'] ?></div>
-
                 <strong>
                     <a onclick="window.open('cancelord.php?ord_id=<?= $row['take_ord_id'] ?>','name','width=600,height=400')"
                         class="text-white btn btn-danger my-3 ord_dtl_a">Cancel Order</a>
                 </strong>
+                <?php } else { ?>
+                <div class="my-3">Status : <?= $row['status'] ?></div>
+
+
                 <?php } ?>
                 <!-- <a href="invoice.php?id=<?= $row['take_ord_id'] ?>" target="__blank"
                     class="btn btn-primary mt-2 mb-3 text-white" name="sub">INVOICE</a> -->

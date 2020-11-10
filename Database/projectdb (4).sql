@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 10, 2020 at 04:52 AM
+-- Generation Time: Nov 10, 2020 at 05:52 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -154,24 +154,14 @@ CREATE TABLE IF NOT EXISTS `order_detaile` (
   `time` timestamp NOT NULL DEFAULT current_timestamp(),
   `ord_status` varchar(200) NOT NULL DEFAULT 'not confirm',
   PRIMARY KEY (`ord_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order_detaile`
 --
 
 INSERT INTO `order_detaile` (`ord_id`, `user_id`, `food_id`, `food_rs`, `food_qty`, `amount`, `time`, `ord_status`) VALUES
-(1, 2, 3, 280, 1, 280, '2020-11-06 07:07:40', 'delivered'),
-(2, 2, 3, 280, 1, 280, '2020-11-06 07:08:34', 'delivered'),
-(3, 2, 5, 90, 1, 90, '2020-11-06 07:08:36', 'delivered'),
-(6, 2, 5, 90, 1, 90, '2020-11-06 07:10:05', 'delivered'),
-(5, 2, 6, 180, 1, 180, '2020-11-06 07:09:35', 'delivered'),
-(7, 2, 5, 90, 1, 90, '2020-11-06 07:14:37', 'delivered'),
-(8, 2, 3, 280, 1, 280, '2020-11-06 09:41:11', 'delivered'),
-(9, 1, 3, 280, 1, 280, '2020-11-06 10:14:05', 'delivered'),
-(11, 3, 3, 280, 2, 560, '2020-11-07 13:28:27', 'delivered'),
-(12, 3, 5, 90, 2, 180, '2020-11-07 13:28:32', 'delivered'),
-(13, 2, 3, 280, 1, 280, '2020-11-09 12:25:29', 'confirm');
+(1, 1, 3, 280, 1, 280, '2020-11-10 05:42:20', 'delivered');
 
 -- --------------------------------------------------------
 
@@ -213,21 +203,14 @@ CREATE TABLE IF NOT EXISTS `take_order` (
   `msg` varchar(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`take_ord_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `take_order`
 --
 
 INSERT INTO `take_order` (`take_ord_id`, `ord_id`, `address_id`, `user_id`, `status`, `amount`, `msg`, `date_time`) VALUES
-(1, '[\"1\"]', 1, 2, 'delivered', 280, 'waiting for restaurant confirmation', '2020-11-06 07:07:47'),
-(2, '[\"2\",\"3\"]', 1, 2, 'delivered', 370, 'waiting for restaurant confirmation', '2020-11-06 07:08:43'),
-(3, '[\"5\",\"6\"]', 1, 2, 'delivered', 270, 'waiting for restaurant confirmation', '2020-11-06 07:09:47'),
-(4, '[\"7\"]', 1, 2, 'delivered', 90, 'waiting for restaurant confirmation', '2020-11-06 07:14:45'),
-(5, '[\"8\"]', 1, 2, 'delivered', 280, 'waiting for restaurant confirmation', '2020-11-06 09:41:17'),
-(6, '[\"9\"]', 2, 1, 'delivered', 280, 'waiting for restaurant confirmation', '2020-11-06 10:14:09'),
-(8, '[\"11\",\"12\"]', 3, 3, 'delivered', 740, 'waiting for restaurant confirmation', '2020-11-07 13:28:51'),
-(9, '[\"13\"]', 1, 2, 'pending', 280, 'waiting for restaurant confirmation', '2020-11-09 12:25:44');
+(1, '[\"1\"]', 2, 1, 'delivered', 280, 'waiting for restaurant confirmation', '2020-11-10 05:42:25');
 
 -- --------------------------------------------------------
 
@@ -245,15 +228,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(20) NOT NULL,
   `datetime` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `mobile`, `pass`, `datetime`) VALUES
-(2, 'mustakim', 'kureshi', 'mustakim@gmail.com', 12121212, 'aaa', '2020-11-07 13:18:21'),
-(3, 'm', 'k', 'mk@gmail.com', 12212121, 'abcd', '2020-11-07 13:20:02');
+(1, 'mustakim', 'kureshi', 'mustakim@gmail.com', 1212212121, 'aaaa', '2020-11-10 05:41:57');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
