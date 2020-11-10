@@ -1,0 +1,25 @@
+Table = order_detaile
+Fields = ord_id	 user_id  food_id    food_rs	food_qty 
+         amount   ord_status    time
+
+Table = food
+Fields = food_id   food_img  food_name  food_descript  food_rs
+
+Table = users
+Fields = user_id  fname  lname  email  mobile  pass
+
+Table = address
+Fields = address_id  flat_no  street_name  area  city  user_id
+
+Table = take_order
+Fields = take_ord_id	 ord_id	 address_id  user_id   status	amount
+         canceled_status   date_time
+
+Table = canceled_order
+Fields = can_ord_id    take_ord_id    user_id    reasion   datetime
+
+Table = category
+Fields =  cat_id   category_name
+
+Table = shop_close
+Fields = id	 status  msg	start_shop	end_shop

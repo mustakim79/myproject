@@ -1,0 +1,17 @@
+/* ----------- myorder ---------- */
+/* #flex #ord_ch1,
+#flex #ord_ch2 {
+  margin: auto;
+}
+#flex {
+  flex-direction: column;
+}
+#flex #ord_ch1 {
+  width: 30vw;
+} */
+
+/*---------- cart ----------*/
+#crt_flex #ch1,
+#crt_flex #ch2 {
+  margin: auto;
+}

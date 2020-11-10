@@ -1,0 +1,10 @@
+status       |
+-------------|
+canceled     |
+delivering   |   
+delivered    |
+pending      |
+not confirm  |
+confirm      |
+processing   |
+-------------|

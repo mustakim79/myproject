@@ -1,0 +1,22 @@
+#cat_img {
+  height: 100px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.btn-container {
+  position: relative;
+}
+
+.btn-container button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+#cat_sp:hover button {
+  visibility: visible;
+}

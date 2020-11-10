@@ -1,0 +1,203 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.BackBon {
+  min-height: 100vh;
+  width: auto;
+}
+
+/* Text on Image CSS */
+.img-text {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.show-hover .show-hover-content {
+  display: none;
+}
+
+.show-hover .show-content {
+  display: block;
+}
+
+.show-hover:hover > .show-hover-content {
+  display: block;
+}
+
+.row1 img {
+  height: 150px;
+  width: 250px;
+}
+
+.obg {
+  position: absolute;
+}
+.cd-1 {
+  height: 120px;
+  width: 150;
+  /* background: li; */
+}
+.cd-2 {
+  bottom: 25px;
+  position: absolute;
+  margin-left: 20px;
+}
+/*--------- index ----------*/
+.mn::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url("../photos/headerbg.png") no-repeat center center/cover;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.fm {
+  display: flex;
+  /* position: absolute; */
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: -55px;
+}
+
+/* File : cart */
+
+#crt_flex #ch1 {
+  height: min-content;
+}
+#crt_flex #ch2 {
+  max-height: 530px;
+  /* min-height: 520px; */
+  height: fit-content;
+}
+hr {
+  color: gray;
+  border-style: inset;
+  border-width: 1px;
+  margin: 0.5em auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+#title {
+  padding-top: 8px;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+}
+#crt_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*------------------- myorder -------------------*/
+
+#flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#flex #ord_ch1 {
+  min-width: 40vw;
+  max-height: max-content;
+}
+.back::before {
+  content: "";
+  height: 50vh;
+  width: 100vw;
+  background: url("../photos/headerbg-2.jpg") no-repeat left center/cover;
+  opacity: 0.8;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: -1;
+}
+#flex #ord_ch1 {
+  width: 50vw;
+}
+
+.back {
+  height: 50vh;
+  width: 100vw;
+}
+
+/*-------------- order_detaile ----------------*/
+#ord_dtl_main #ch1 {
+  min-width: fit-content;
+  height: min-content;
+}
+#title {
+  height: 65px;
+}
+.ord_dtl_a {
+  cursor: pointer;
+}
+#title2 {
+  background: rgba(0, 0, 0, 0.05);
+  padding-bottom: 13px;
+}
+
+/*-------------- invoice --------------*/
+.inv_capt {
+  font-size: 1.3rem;
+  text-align: center;
+}
+.inv_img {
+  max-width: 100px;
+}
+/*--------------- index --------------*/
+.type {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.type-div {
+  min-height: 10vh;
+}
+.typed-cursor {
+  display: none;
+}
+@media screen and (min-width: 50px) and (max-width: 909px) {
+}
