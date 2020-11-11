@@ -30,8 +30,11 @@ if ($data > 0) {
 </div>
 <?php
 } else {
-    // header('location:index.php');
-    echo "<h1 class='h-75 text-center'>You Have Not Order Yet</h1>";
+?>
+<div class="h-75 text-center" style="display:flex;align-items:center;justify-content:center;">
+    <h1 class=''>You Have Not Order Yet</h1>
+</div>
+<?php
 }
 include 'footer.php';
 ?>
