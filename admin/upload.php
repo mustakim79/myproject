@@ -148,6 +148,6 @@ if ($_SESSION['admin']) {
 		}
 	}
 } else {
-	echo "login please";
+	header('location:login.php');
 }
 ?>
