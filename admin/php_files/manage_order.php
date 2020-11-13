@@ -18,5 +18,6 @@ if (isset($_SESSION['admin'])) {
         echo "something wrong";
     }
 } else {
-    echo "login please";
+    // echo "login please";
+    header('location:login.php');
 }

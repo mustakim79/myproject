@@ -21,5 +21,6 @@ if (isset($_SESSION['admin'])) {
         }
     }
 } else {
-    echo "please login";
+    // echo "please login";
+    header('location:login.php');
 }

@@ -97,7 +97,7 @@ if (isset($_SESSION['admin'])) {
                             <th>email</th>
                             <th>mobile</th>
                             <th>edit</th>
-                            <th>delete</th>
+                            <!-- <th>delete</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -114,9 +114,9 @@ if (isset($_SESSION['admin'])) {
                             <td><?= $row['mobile'] ?></td>
                             <td><a href="manage_user.php?u_id=<?= $row['user_id'] ?>" class="btn btn-primary"
                                     role="button">Edit</a></td>
-                            <td><a href="delete.php?user_id=<?= $row['user_id'] ?>" class="btn btn-danger btn-sm">
+                            <!-- <td><a href="delete.php?user_id=<?= $row['user_id'] ?>" class="btn btn-danger btn-sm">
                                     Delete</a>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -128,7 +128,7 @@ if (isset($_SESSION['admin'])) {
                             <th>email</th>
                             <th>mobile</th>
                             <th>edit</th>
-                            <th>delete</th>
+                            <!-- <th>delete</th> -->
                         </tr>
                     </tfoot>
                 </table>
@@ -141,6 +141,6 @@ if (isset($_SESSION['admin'])) {
 
     include 'footer.php';
 } else {
-    header('login.php');
+    header('location:login.php');
 }
 ?>
