@@ -5,12 +5,12 @@ include 'config.php';
 date_default_timezone_set('Asia/Kolkata');
 if (isset($_GET['cat_id'])) {
     $id = $_GET['cat_id'];
-    $qr = "SELECT * FROM `food` WHERE `category_id`=$id";
+    $qr = "SELECT * FROM `food` WHERE `category_id`=$id AND `display_status`=1";
 } else if (isset($_POST['bsch'])) {
     $fnm = mysqli_escape_string($conn, $_POST['tsch']);
-    $qr = "SELECT * FROM `food` WHERE `food_name`='$fnm'";
+    $qr = "SELECT * FROM `food` WHERE `food_name` LIKE '%$fnm%' AND `display_status`=1";
 } else {
-    $qr = "SELECT * FROM `food`";
+    $qr = "SELECT * FROM `food` WHERE `display_status`=1";
 }
 $res = mysqli_query($conn, $qr);
 $rows = mysqli_num_rows($res);

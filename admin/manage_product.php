@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['admin'])) {
     include 'sidebar_nav.php';
     // echo 
-    $qr = "SELECT * FROM `food` INNER JOIN `category` ON `food`.`category_id`=`category`.`cat_id` ";
+    $qr = "SELECT * FROM `food` INNER JOIN `category` ON `food`.`category_id`=`category`.`cat_id`";
     $res = mysqli_query($conn, $qr);
     // exit;
 ?>
@@ -72,9 +72,22 @@ if (isset($_SESSION['admin'])) {
                             <div class="col-sm-12 col-12 text-right">
                                 <a href="update_product.php?edit=<?= $row2['food_id'] ?>"
                                     class="btn btn-success btn-sm mr-3">Edit</a>
-                                <button type="button" class="btn btn-danger btn-sm delete_class"
-                                    id="<?= $row2['food_id'] ?>">
-                                    Delete</button>
+                                <?php
+                                        $ch_qr = "SELECT * FROM `food` WHERE `display_status`=1 AND `food_id`=$row2[food_id]";
+                                        $ch_res = mysqli_query($conn, $ch_qr);
+                                        $data = mysqli_num_rows($ch_res);
+                                        if ($data == 1) {
+                                        ?>
+                                <a href="delete.php?disable=<?= $row2['food_id'] ?>" class="btn btn-sm btn-danger"
+                                    role="button">Disable</a>
+                                <?php  } else {
+                                        ?>
+
+                                <a href="delete.php?enable=<?= $row2['food_id'] ?>" class="btn btn-sm btn-primary"
+                                    role="button">Enable</a>
+                                <?php
+
+                                        } ?>
                             </div>
                         </div>
                     </div>

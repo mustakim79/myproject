@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
                             $ord_res = mysqli_query($conn, $ord_qr);
                             $ord_row = mysqli_fetch_assoc($ord_res);
                             // // echo
-                            // $food_qr = "SELECT * FROM `food` WHERE `food_id`=$f_id";
+                            // $food_qr = "SELECT * FROM `food` WHERE `food_id`=$f_id AND `display_status`=1";
                             // // exit;
                             // $food_res = mysqli_query($conn, $food_qr);
                             // $food_row = mysqli_fetch_assoc($food_res);
