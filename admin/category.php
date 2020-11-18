@@ -47,7 +47,7 @@ if (isset($_SESSION['admin'])) {
     function crop_png($img)
     {
         $path = "../photos/" . $_FILES["file"]["name"];
-        $image = imagecreatefromjpeg($img);
+        $image = imagecreatefrompng($img);
         $filename = $path;
 
         $thumb_width = 1920;
