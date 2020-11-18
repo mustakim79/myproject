@@ -1,16 +1,21 @@
-<script>
-if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-}
+<html>
 
-function msg() {
-    window.location.href = 'index.php';
-}
-</script>
+<head>
+    <?php include 'bfile.html'; ?>
+    <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+    function msg() {
+        window.location.href = 'index.php';
+    }
+    </script>
+
+</head>
 <?php
 session_start();
 include("config.php");
-include 'bfile.html';
 /*
 
 Table: user
@@ -57,32 +62,36 @@ if (isset($_POST['login'])) {
 }
 ?>
 <?php include("alert_msg.php"); ?>
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Sign In</h5>
-                        <form method="post">
-                            <div class="form-label-group">
 
-                                <label for="inputEmail">Email address</label>
-                                <input type="text" name="email" id="inputEmail" class="form-control mb-2 "
-                                    placeholder="Email address" required autofocus>
-                            </div>
-                            <div class="form-label-group">
-                                <label for="inputPassword">Password</label>
-                                <input type="password" id="inputPassword" name="pass" class="form-control mb-2"
-                                    placeholder="Password" required>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" name="login"
-                                type="submit">Sign
-                                in</button>
-                        </form>
+<body class="bg-primary">
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign In</h5>
+                            <form method="post">
+                                <div class="form-label-group">
+
+                                    <label for="inputEmail">Email address</label>
+                                    <input type="email" name="email" id="inputEmail" class="form-control mb-2 "
+                                        placeholder="Email address" required autofocus>
+                                </div>
+                                <div class="form-label-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" id="inputPassword" name="pass" class="form-control mb-2"
+                                        placeholder="Password" required>
+                                </div>
+                                <button class="btn btn-primary btn-block text-uppercase" name="login" type="submit">Sign
+                                    in</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+</body>
+
+</html>
