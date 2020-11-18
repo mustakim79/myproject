@@ -18,8 +18,8 @@ user_id  fname  lname  email  mobile  pass
 
 */
 if (isset($_POST['login'])) {
-    $pass = $_POST['pass'];
-    $email = $_POST['email'];
+    $pass = mysqli_escape_string($conn, $_POST['pass']);
+    $email = mysqli_escape_string($conn, $_POST['email']);
     // echo 
     $qr = "SELECT * FROM `users` WHERE `email`='$email'";
     // exit();
@@ -58,11 +58,6 @@ if (isset($_POST['login'])) {
 ?>
 <?php include("alert_msg.php"); ?>
 <main>
-    <link rel="stylesheet" href="login_template/all.css">
-    <link rel="stylesheet" href="login_template/bootstrap.min.css">
-    <script src="login_template/bootsrtrap.bundle.min.js"></script>
-    <script src="login_template/jquery.slim.min.js"></script>
-
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -71,27 +66,23 @@ if (isset($_POST['login'])) {
                         <h5 class="card-title text-center">Sign In</h5>
                         <form method="post">
                             <div class="form-label-group">
-                                <input type="text" name="email" id="inputEmail" class="form-control"
-                                    placeholder="Email address" required autofocus>
-                                <label for="inputEmail">Email address</label>
-                            </div>
 
+                                <label for="inputEmail">Email address</label>
+                                <input type="text" name="email" id="inputEmail" class="form-control mb-2 "
+                                    placeholder="Email address" required autofocus>
+                            </div>
                             <div class="form-label-group">
-                                <input type="password" id="inputPassword" name="pass" class="form-control"
-                                    placeholder="Password" required>
                                 <label for="inputPassword">Password</label>
+                                <input type="password" id="inputPassword" name="pass" class="form-control mb-2"
+                                    placeholder="Password" required>
                             </div>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" name="login"
                                 type="submit">Sign
                                 in</button>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>
-<?php //include("footer.php"); 
-?>

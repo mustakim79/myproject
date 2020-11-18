@@ -148,7 +148,7 @@ hr {
 .back::before {
   content: "";
   height: 50vh;
-  width: 100vw;
+  width: 98.3vw;
   background: url("../photos/headerbg-2.jpg") no-repeat left center/cover;
   opacity: 0.8;
   position: absolute;
@@ -162,7 +162,7 @@ hr {
 
 .back {
   height: 50vh;
-  width: 100vw;
+  width: 98.3vw;
 }
 
 /*-------------- order_detaile ----------------*/

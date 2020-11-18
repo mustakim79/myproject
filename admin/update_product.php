@@ -18,106 +18,110 @@ if (isset($_SESSION['admin'])) {
             $name = mysqli_escape_string($conn, $_POST['title']);
             $descr = mysqli_escape_string($conn, $_POST['descr']);
             $rs = $_POST['price'];
-            if (isset($_FILES['file']['name'])) {
+            if ($_FILES["file"]["name"] !== "") {
+
+                function crop_jpeg($img)
+                {
+                    $path = "../photos/" . $_FILES["file"]["name"];
+                    $image = imagecreatefromjpeg($img);
+                    $filename = $path;
+
+                    $thumb_width = 1920;
+                    $thumb_height = 1080;
+
+                    $width = imagesx($image);
+                    $height = imagesy($image);
+
+                    $original_aspect = $width / $height;
+                    $thumb_aspect = $thumb_width / $thumb_height;
+
+                    if ($original_aspect >= $thumb_aspect) {
+                        // If image is wider than thumbnail (in aspect ratio sense)
+                        $new_height = $thumb_height;
+                        $new_width = $width / ($height / $thumb_height);
+                    } else {
+                        // If the thumbnail is wider than the image
+                        $new_width = $thumb_width;
+                        $new_height = $height / ($width / $thumb_width);
+                    }
+
+                    $thumb = imagecreatetruecolor($thumb_width, $thumb_height);
+
+                    // Resize and crop
+                    imagecopyresampled(
+                        $thumb,
+                        $image,
+                        0 - ($new_width - $thumb_width) / 2, // Center the image horizontally
+                        0 - ($new_height - $thumb_height) / 2, // Center the image vertically
+                        0,
+                        0,
+                        $new_width,
+                        $new_height,
+                        $width,
+                        $height
+                    );
+                    imagejpeg($thumb, $filename, 80);
+                }
+                function crop_png($img)
+                {
+                    $path = "../photos/" . $_FILES["file"]["name"];
+                    $image = imagecreatefrompng($img);
+                    $filename = $path;
+
+                    $thumb_width = 1920;
+                    $thumb_height = 1080;
+
+                    $width = imagesx($image);
+                    $height = imagesy($image);
+
+                    $original_aspect = $width / $height;
+                    $thumb_aspect = $thumb_width / $thumb_height;
+
+                    if ($original_aspect >= $thumb_aspect) {
+                        // If image is wider than thumbnail (in aspect ratio sense)
+                        $new_height = $thumb_height;
+                        $new_width = $width / ($height / $thumb_height);
+                    } else {
+                        // If the thumbnail is wider than the image
+                        $new_width = $thumb_width;
+                        $new_height = $height / ($width / $thumb_width);
+                    }
+
+                    $thumb = imagecreatetruecolor($thumb_width, $thumb_height);
+
+                    // Resize and crop
+                    imagecopyresampled(
+                        $thumb,
+                        $image,
+                        0 - ($new_width - $thumb_width) / 2, // Center the image horizontally
+                        0 - ($new_height - $thumb_height) / 2, // Center the image vertically
+                        0,
+                        0,
+                        $new_width,
+                        $new_height,
+                        $width,
+                        $height
+                    );
+                    imagejpeg($thumb, $filename, 80);
+                }
                 if ($_FILES["file"]["type"] == "image/jpeg" || $_FILES["file"]["type"] == "image/jpg" || $_FILES["file"]["type"] == "image/png") {
                     // echo "<br>file";
+
                     $path = "../photos/" . $_FILES["file"]["name"];
 
                     if (move_uploaded_file($_FILES["file"]["tmp_name"], $path)) {
-                        // echo "<br>sub";
-                        // Image Crop Code
-                        function crop_jpeg($img)
-                        {
-                            $path = "../photos/" . $_FILES["file"]["name"];
-                            $image = imagecreatefromjpeg($img);
-                            $filename = $path;
-
-                            $thumb_width = 1920;
-                            $thumb_height = 1080;
-
-                            $width = imagesx($image);
-                            $height = imagesy($image);
-
-                            $original_aspect = $width / $height;
-                            $thumb_aspect = $thumb_width / $thumb_height;
-
-                            if ($original_aspect >= $thumb_aspect) {
-                                // If image is wider than thumbnail (in aspect ratio sense)
-                                $new_height = $thumb_height;
-                                $new_width = $width / ($height / $thumb_height);
-                            } else {
-                                // If the thumbnail is wider than the image
-                                $new_width = $thumb_width;
-                                $new_height = $height / ($width / $thumb_width);
-                            }
-
-                            $thumb = imagecreatetruecolor($thumb_width, $thumb_height);
-
-                            // Resize and crop
-                            imagecopyresampled(
-                                $thumb,
-                                $image,
-                                0 - ($new_width - $thumb_width) / 2, // Center the image horizontally
-                                0 - ($new_height - $thumb_height) / 2, // Center the image vertically
-                                0,
-                                0,
-                                $new_width,
-                                $new_height,
-                                $width,
-                                $height
-                            );
-                            imagejpeg($thumb, $filename, 80);
-                        }
-                        function crop_png($img)
-                        {
-                            $path = "../photos/" . $_FILES["file"]["name"];
-                            $image = imagecreatefromjpeg($img);
-                            $filename = $path;
-
-                            $thumb_width = 1920;
-                            $thumb_height = 1080;
-
-                            $width = imagesx($image);
-                            $height = imagesy($image);
-
-                            $original_aspect = $width / $height;
-                            $thumb_aspect = $thumb_width / $thumb_height;
-
-                            if ($original_aspect >= $thumb_aspect) {
-                                // If image is wider than thumbnail (in aspect ratio sense)
-                                $new_height = $thumb_height;
-                                $new_width = $width / ($height / $thumb_height);
-                            } else {
-                                // If the thumbnail is wider than the image
-                                $new_width = $thumb_width;
-                                $new_height = $height / ($width / $thumb_width);
-                            }
-
-                            $thumb = imagecreatetruecolor($thumb_width, $thumb_height);
-
-                            // Resize and crop
-                            imagecopyresampled(
-                                $thumb,
-                                $image,
-                                0 - ($new_width - $thumb_width) / 2, // Center the image horizontally
-                                0 - ($new_height - $thumb_height) / 2, // Center the image vertically
-                                0,
-                                0,
-                                $new_width,
-                                $new_height,
-                                $width,
-                                $height
-                            );
-                            imagejpeg($thumb, $filename, 80);
-                        }
                         if ($_FILES["file"]["type"] == "image/jpeg" || $_FILES["file"]["type"] == "image/jpg") {
                             crop_jpeg($path);
                         } else if ($_FILES["file"]["type"] == "image/png") {
                             crop_png($path);
                         }
+                        // echo "<br>sub";
+                        // Image Crop Code
+                        $img = mysqli_escape_string($conn, $_FILES['file']['name']);
+                        $update_qr = "UPDATE `food` SET `food_img`='$img',`food_name`='$name',`food_descript`='$descr',`food_rs`='$rs',`category_id`=$cat_id WHERE `food_id`=$id";
+                    } else {
+                        echo "<script>alert('File could not be uploaded');location.href='manage_product.php';</script>";
                     }
-                    $img = mysqli_escape_string($conn, $_FILES['file']['name']);
-                    $update_qr = "UPDATE `food` SET `food_img`='$img',`food_name`='$name',`food_descript`='$descr',`food_rs`='$rs',`category_id`=$cat_id WHERE `food_id`=$id";
                 } else {
                     echo "<script>alert('upload only jpeg,jpg or png');location.href='manage_product.php'</script>";
                 }
@@ -241,7 +245,7 @@ $(document).ready(function() {
 <?php
         include 'footer.php';
     } else {
-        echo "manage.php";
+        header('location:manage_product.php');
     }
 } else {
     header('location:login.php');

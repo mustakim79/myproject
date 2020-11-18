@@ -26,7 +26,7 @@ if (isset($_SESSION['admin'])) {
                             <th>status</th>
                             <th>amount</th>
                             <th>time</th>
-                            <th>Edit</th>
+                            <th>View</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +50,7 @@ if (isset($_SESSION['admin'])) {
                             <td><?= $row['date_time'] ?></td>
                             <td>
                                 <a href="view_order.php?id=<?= $row['take_ord_id'] ?>" class="btn btn-primary"
-                                    role="button">Edit</a>
+                                    role="button">View</a>
                             </td>
                         </tr>
                         <?php } ?>
@@ -63,7 +63,7 @@ if (isset($_SESSION['admin'])) {
                             <th>status</th>
                             <th>amount</th>
                             <th>time</th>
-                            <th>Edit</th>
+                            <th>View</th>
                         </tr>
                     </tfoot>
                 </table>
