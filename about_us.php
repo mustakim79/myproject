@@ -7,12 +7,12 @@ include 'header.php';
         <h1 class="text-center my-3"><b>About Us</b></h1>
         <div class="card-deck my-3">
             <div class="card shadow">
-                <img src="photos/chef1.jpg" style="object-fit:cover;    height: 210px;object-position: top;"
+                <img src="photos/chef.png" style="object-fit:cover;    height: 210px;object-position: top;"
                     class="card-img-top" alt="..." style="height:150px;">
                 <div class="card-body text-center">
                     <h5>Chef</h5><br>
                     <b>
-                        <h3>Edward Robinson</h3>
+                        <h3>Sanjeev Kapoor</h3>
                     </b>
                 </div>
             </div>
