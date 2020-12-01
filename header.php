@@ -2,12 +2,6 @@
 
 <head>
     <?php include 'bfile.html'; ?>
-
-    <script>
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-    </script>
     <script>
     $(document).ready(function() {
         $("#tot_item").load('count_item.php');

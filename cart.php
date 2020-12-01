@@ -66,7 +66,8 @@ if ($data > 0) {
                         <input type="number" pattern="[1-9]+" required class="form-control text-center"
                             onchange="update_data(<?= $row2['food_id'] ?>,this.value); get_amount();"
                             onkeydown="get_amount()" onclick="get_amount()" onblur="get_amount()" name="qty"
-                            value="<?= $row['food_qty'] ?>" min="1" step="1" id="spinner">
+                            value="<?= $row['food_qty'] ?>" min="1" step="1" id="spinner"
+                            onload="update_data(<?= $row2['food_id'] ?>,this.value); get_amount();">
                     </div>
 
                     <div class="col-md-3 mt-md-3 col-sm-4 offset-sm-4 offset-md-0 mt-sm-2 col-4 offset-4">
